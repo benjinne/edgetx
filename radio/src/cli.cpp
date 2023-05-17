@@ -1393,7 +1393,7 @@ int cliDebugVars(const char ** argv)
   cliSerialPrint("authenticateFrames=%d", authenticateFrames);
 #endif
 #elif defined(PCBTARANIS)
-  cliSerialPrint("telemetryErrors=%d", telemetryErrors);
+  // cliSerialPrint("telemetryErrors=%d", telemetryErrors);
 #endif
 
   return 0;

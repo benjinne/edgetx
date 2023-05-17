@@ -87,7 +87,7 @@ void sdMount();
 void sdDone();
 void sdPoll10ms();
 uint32_t sdMounted();
-#define SD_CARD_PRESENT()               ((SD_GPIO_PRESENT_GPIO->IDR & SD_GPIO_PRESENT_GPIO_PIN) == 0)
+#define SD_CARD_PRESENT()               true
 #endif
 
 // Flash Write driver
@@ -843,8 +843,8 @@ void fsLedOn(uint8_t);
 #define LCD_H                           64
 #define LCD_DEPTH                       1
 #define IS_LCD_RESET_NEEDED()           true
-#define LCD_CONTRAST_MIN                10
-#define LCD_CONTRAST_MAX                30
+#define LCD_CONTRAST_MIN                0
+#define LCD_CONTRAST_MAX                45
 #if defined(RADIO_TX12) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER)
   #define LCD_CONTRAST_DEFAULT          20
 #elif defined(RADIO_TPRO) || defined(RADIO_FAMILY_JUMPER_T12) || defined(RADIO_TPRO) || defined(RADIO_COMMANDO8)
@@ -852,9 +852,9 @@ void fsLedOn(uint8_t);
 #else
   #define LCD_CONTRAST_DEFAULT          15
 #endif
-#if defined(RADIO_LR3PRO)
+#if defined(RADIO_LR3PRO) || defined(RADIO_ZORRO)
   // add offset 2px because driver (SH1106) of the 1.3 OLED is for a 132 display
-  #define LCD_W_OFFSET                  0x02
+  #define LCD_W_OFFSET                  0x04
 #endif
 #endif
 
@@ -920,7 +920,7 @@ void setTopBatteryValue(uint32_t volts);
   #define BATTERY_DIVIDER 26214
 #endif 
 
-#if defined(RADIO_ZORRO) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER)
+#if defined(RADIO_TX12MK2) || defined(RADIO_BOXER)
   #define VOLTAGE_DROP 45
 #else
   #define VOLTAGE_DROP 20
