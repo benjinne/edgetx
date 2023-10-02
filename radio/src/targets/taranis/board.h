@@ -382,8 +382,8 @@ void ledBlue();
 #define LCD_CONTRAST_MIN                2
 #define LCD_CONTRAST_MAX                254
 #else
-#define LCD_CONTRAST_MIN                10
-#define LCD_CONTRAST_MAX                30
+#define LCD_CONTRAST_MIN                0
+#define LCD_CONTRAST_MAX                45
 #endif
 
 #if defined(OLED_SCREEN)
@@ -393,11 +393,11 @@ void ledBlue();
 #elif defined(RADIO_TPRO) || defined(RADIO_FAMILY_JUMPER_T12) || defined(RADIO_TPRO) || defined(RADIO_COMMANDO8)
   #define LCD_CONTRAST_DEFAULT          25
 #else
-  #define LCD_CONTRAST_DEFAULT          15
+  #define LCD_CONTRAST_DEFAULT          45
 #endif
-#if defined(OLED_SCREEN)
+#if defined(OLED_SCREEN) || defined(RADIO_ZORRO)
   // add offset 2px because driver (SH1106) of the 1.3 OLED is for a 132 display
-  #define LCD_W_OFFSET                  0x02
+  #define LCD_W_OFFSET                  0x04
 #endif
 #endif
 
@@ -461,7 +461,7 @@ void setTopBatteryValue(uint32_t volts);
   #define BATTERY_DIVIDER 26214
 #endif 
 
-#if defined(RADIO_ZORRO) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_POCKET)
+#if defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_POCKET)
   #define VOLTAGE_DROP 45
 #elif defined(RADIO_TPROV2) || defined(RADIO_T20)
   #define VOLTAGE_DROP 60

@@ -71,7 +71,8 @@ void storagePreMountHook()
 
 bool storageIsPresent()
 {
-  return (_STORAGE_DRIVER.status(0) & STA_NODISK) == 0;
+  // return (_STORAGE_DRIVER.status(0) & STA_NODISK) == 0;
+  return true;
 }
 
 const diskio_driver_t* storageGetDefaultDriver()

@@ -82,7 +82,7 @@
   #define KEYS_GPIO_PIN_LEFT            LL_GPIO_PIN_7 // PD.07
   #define KEYS_GPIO_REG_RIGHT           GPIOD
   #define KEYS_GPIO_PIN_RIGHT           LL_GPIO_PIN_3 // PD.03
-#elif defined(RADIO_TX12) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_ZORRO) || defined(RADIO_POCKET)
+#elif defined(RADIO_TX12) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_POCKET)
   #define KEYS_GPIO_REG_PAGEUP          GPIOD
   #define KEYS_GPIO_PIN_PAGEUP          LL_GPIO_PIN_3  // PD.03
   #define KEYS_GPIO_REG_PAGEDN          GPIOD
@@ -107,6 +107,27 @@
   #define KEYS_GPIO_PIN_MDL             LL_GPIO_PIN_11 // PE.11
   #define KEYS_GPIO_REG_TELE            GPIOD
   #define KEYS_GPIO_PIN_TELE            LL_GPIO_PIN_2  // PD.02
+#elif defined(RADIO_ZORRO)
+  #define KEYS_GPIO_REG_PAGEUP          GPIOD
+  #define KEYS_GPIO_PIN_PAGEUP          LL_GPIO_PIN_3  // PD.03
+  #define KEYS_GPIO_REG_PAGEDN          GPIOD
+  #define KEYS_GPIO_PIN_PAGEDN          LL_GPIO_PIN_7  // PD.07
+  #define KEYS_GPIO_REG_EXIT            GPIOC
+  #define KEYS_GPIO_PIN_EXIT            LL_GPIO_PIN_5  // PC.05
+  #define KEYS_GPIO_REG_ENTER           GPIOA
+  #define KEYS_GPIO_PIN_ENTER           LL_GPIO_PIN_10 // PA.10
+  #define KEYS_GPIO_REG_SYS             GPIOB
+  #define KEYS_GPIO_PIN_SYS             LL_GPIO_PIN_4  // PB.04
+  #define KEYS_GPIO_REG_MDL             GPIOE
+  #define KEYS_GPIO_PIN_MDL             LL_GPIO_PIN_11 // PE.11
+  #define KEYS_GPIO_REG_TELE            GPIOD
+  #define KEYS_GPIO_PIN_TELE            LL_GPIO_PIN_2  // PD.02
+  #define KEYS_GPIO_REG_PLUS            GPIOE
+  #define KEYS_GPIO_PIN_PLUS            LL_GPIO_PIN_9  // PE.09
+  #define KEYS_GPIO_REG_MINUS           GPIOE
+  #define KEYS_GPIO_PIN_MINUS           LL_GPIO_PIN_10 // PE.10
+  // #define KEYS_GPIO_REG_BIND
+  // #define KEYS_GPIO_PIN_BIND
 #elif defined(RADIO_T8)
   #define KEYS_GPIO_REG_PAGEUP          GPIOD
   #define KEYS_GPIO_PIN_PAGEUP          LL_GPIO_PIN_3  // PD.03
@@ -266,7 +287,7 @@
     #define USE_EXTI15_10_IRQ
     #define EXTI15_10_IRQ_Priority 5
   #endif
-#elif defined(RADIO_TX12) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_ZORRO) || defined(RADIO_POCKET)
+#elif defined(RADIO_TX12) || defined(RADIO_TX12MK2) || defined(RADIO_BOXER) || defined(RADIO_POCKET)
   #define ROTARY_ENCODER_NAVIGATION
   #define ROTARY_ENCODER_GPIO              GPIOE
   #define ROTARY_ENCODER_GPIO_PIN_A        GPIO_Pin_9 // PE.9
@@ -571,7 +592,7 @@
   #define SWITCHES_B_INVERTED
   #define SWITCHES_GPIO_REG_B           GPIOE
   #define SWITCHES_GPIO_PIN_B           LL_GPIO_PIN_2  // PE.02
-#elif (RADIO_LR3PRO)
+#elif (RADIO_LR3PRO || defined (RADIO_ZORRO))
   #define STORAGE_SWITCH_B
   #define HARDWARE_SWITCH_B
   #define SWITCHES_GPIO_REG_B_L         GPIOE
@@ -1394,7 +1415,7 @@
   #define STICK_PWM_CHANNEL_LV          0
   #define STICK_PWM_CHANNEL_RV          2
   #define STICK_PWM_CHANNEL_RH          3
-#elif defined(RADIO_TLITE) || defined(RADIO_LR3PRO)
+#elif defined(RADIO_TLITE) || defined(RADIO_LR3PRO) || defined(RADIO_ZORRO)
   #define ADC_GPIO_PIN_STICK_RV         LL_GPIO_PIN_0  // PA.00
   #define ADC_GPIO_PIN_STICK_RH         LL_GPIO_PIN_1  // PA.01
   #define ADC_GPIO_PIN_STICK_LV         LL_GPIO_PIN_2  // PA.02
@@ -2700,7 +2721,7 @@
   #define HAPTIC_GPIO_PIN               GPIO_Pin_12
 #endif
 
-#if defined(RADIO_BOXER) || defined(RADIO_T20)
+#if defined(RADIO_BOXER) || defined(RADIO_T20) || defined(RADIO_ZORRO)
   // Flysky Hall Stick
   #define FLYSKY_HALL_SERIAL_USART                 UART4
   #define FLYSKY_HALL_SERIAL_GPIO                  GPIOA
