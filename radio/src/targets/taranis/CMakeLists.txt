@@ -252,10 +252,9 @@ elseif(PCB STREQUAL X7)
     set(ROTARY_ENCODER NO)
     set(USB_CHARGER NO)
     set(USE_RTC_CLOCK NO)
-    set(FLYSKY_GIMBAL ON)
+    # set(FLYSKY_GIMBAL ON)
     add_definitions(-DRADIO_ZORRO)
     add_definitions(-DEEPROM_VARIANT=0x4006)
-    # add_definitions(-DSTICKS_PWM)
     add_definitions(-DMANUFACTURER_RADIOMASTER)
     set(PXX2 ON)
     set(ENABLE_SERIAL_PASSTHROUGH ON CACHE BOOL "Enable serial passthrough")
@@ -581,7 +580,7 @@ set(FIRMWARE_TARGET_SRC
   backlight_driver.cpp
   )
 
-if(PCB STREQUAL XLITE OR PCB STREQUAL XLITES OR PCBREV STREQUAL COMMANDO8)
+if(PCB STREQUAL XLITE OR PCB STREQUAL XLITES OR PCBREV STREQUAL COMMANDO8 OR PCBREV STREQUAL ZORRO)
   set(FIRMWARE_SRC
     ${FIRMWARE_SRC}
     targets/common/arm/stm32/sticks_pwm_driver.cpp)
