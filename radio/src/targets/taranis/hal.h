@@ -1415,7 +1415,33 @@
   #define STICK_PWM_CHANNEL_LV          0
   #define STICK_PWM_CHANNEL_RV          2
   #define STICK_PWM_CHANNEL_RH          3
-#elif defined(RADIO_TLITE) || defined(RADIO_LR3PRO) || defined(RADIO_ZORRO)
+#elif defined(RADIO_ZORRO)
+  #define ADC_GPIO_PIN_STICK_LH         LL_GPIO_PIN_3  // PA.03
+  #define ADC_GPIO_PIN_STICK_LV         LL_GPIO_PIN_2  // PA.02
+  #define ADC_GPIO_PIN_STICK_RV         LL_GPIO_PIN_0  // PA.00
+  #define ADC_GPIO_PIN_STICK_RH         LL_GPIO_PIN_1  // PA.01
+  #define ADC_GPIO_PIN_BATT             LL_GPIO_PIN_0  // PC.00 
+  #define PWM_STICKS
+  #define PWM_TIMER                     TIM5
+  #define PWM_GPIO                      GPIOA
+  #define PWM_GPIO_AF                   LL_GPIO_AF_2
+  #define PWM_IRQHandler                TIM5_IRQHandler
+  #define PWM_IRQn                      TIM5_IRQn
+  #define PWM_GPIOA_PINS                (ADC_GPIO_PIN_STICK_RV | ADC_GPIO_PIN_STICK_RH | ADC_GPIO_PIN_STICK_LH | ADC_GPIO_PIN_STICK_LV)
+  #define STICK_PWM_CHANNEL_LH          3
+  #define STICK_PWM_CHANNEL_LV          2
+  #define STICK_PWM_CHANNEL_RV          0
+  #define STICK_PWM_CHANNEL_RH          1
+  #define ADC_GPIOA_PINS                (ADC_GPIO_PIN_STICK_RV | ADC_GPIO_PIN_STICK_RH | ADC_GPIO_PIN_STICK_LH | ADC_GPIO_PIN_STICK_LV)
+  #define ADC_GPIOB_PINS                0
+  #define ADC_GPIOC_PINS                ADC_GPIO_PIN_BATT
+  #define ADC_CHANNEL_STICK_LH          LL_ADC_CHANNEL_3  // ADC1_IN3
+  #define ADC_CHANNEL_STICK_LV          LL_ADC_CHANNEL_2  // ADC1_IN2
+  #define ADC_CHANNEL_STICK_RV          LL_ADC_CHANNEL_0  // ADC1_IN0
+  #define ADC_CHANNEL_STICK_RH          LL_ADC_CHANNEL_1  // ADC1_IN1
+  #define ADC_CHANNEL_BATT              LL_ADC_CHANNEL_10
+  #define ADC_VREF_PREC2                330  
+#elif defined(RADIO_TLITE) || defined(RADIO_LR3PRO)
   #define ADC_GPIO_PIN_STICK_RV         LL_GPIO_PIN_0  // PA.00
   #define ADC_GPIO_PIN_STICK_RH         LL_GPIO_PIN_1  // PA.01
   #define ADC_GPIO_PIN_STICK_LV         LL_GPIO_PIN_2  // PA.02
@@ -2721,7 +2747,7 @@
   #define HAPTIC_GPIO_PIN               GPIO_Pin_12
 #endif
 
-#if defined(RADIO_BOXER) || defined(RADIO_T20) || defined(RADIO_ZORRO)
+#if defined(RADIO_BOXER) || defined(RADIO_T20)
   // Flysky Hall Stick
   #define FLYSKY_HALL_SERIAL_USART                 UART4
   #define FLYSKY_HALL_SERIAL_GPIO                  GPIOA
