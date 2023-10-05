@@ -578,7 +578,7 @@ void doSplash()
 
       getADC();
 
-      if (getEvent() || inactivityCheckInputs())
+      if (getEvent()) // Todo determine why ADC value oscillation prevent splash screen
         return;
 
 #if defined(PWR_BUTTON_PRESS)
