@@ -397,7 +397,7 @@ void ledBlue();
 #endif
 #if defined(OLED_SCREEN) || defined(RADIO_ZORRO)
   // add offset 2px because driver (SH1106) of the 1.3 OLED is for a 132 display
-  #define LCD_W_OFFSET                  0x04
+  #define LCD_W_OFFSET                  0x02
 #endif
 #endif
 
